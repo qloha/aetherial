@@ -28,7 +28,7 @@ export default function DropdownMenu() {
         >
             <button className="relative font-medium text-gray-700 group">
                 <span>Things</span>
-                <span className="absolute -bottom-1 left-0 w-0 h-2 bg-blue-400 transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-1 bg-blue-400 transition-all group-hover:w-full"></span>
             </button>
             {isOpen && (
                 <ul className="absolute bg-white shadow-md rounded w-36 mt-2 z-50 border border-gray-200">
