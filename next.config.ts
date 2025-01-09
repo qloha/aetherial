@@ -1,8 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
-  basePath: "/aetherial",
+  reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
+  assetPrefix: './',
+  basePath: '/aetherial',
+  output: 'export'
 };
 
 export default nextConfig;
