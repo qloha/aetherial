@@ -11,7 +11,7 @@ header {
 }
 
 a {
-  @apply text-blue-600 hover:underline transition duration-200;
+  @apply text-gray-700;
 }
 
 h1 {

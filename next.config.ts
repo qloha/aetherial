@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: './',
+  //assetPrefix: './',
   basePath: '/aetherial',
   output: 'export'
 };

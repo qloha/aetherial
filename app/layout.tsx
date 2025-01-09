@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from "react";
+import DropdownMenu from './components/Dropdown'; // Adjusted path
 
 export default function RootLayout({
                                        children,
@@ -9,16 +9,15 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body>
-        <header className="flex justify-between items-center px-6 py-4">
-            <Link href="/" className="text-2xl font-bold">
+        <header className="flex justify-between items-center px-8 py-4">
+            <Link href="/" className="text-2xl font-bold text-blue-500 hover:underline transition duration-200">
                 Aetherial
             </Link>
             <nav className="flex space-x-6">
-                <Link href="/" className="font-medium">
-                    Thing 1
-                </Link>
-                <Link href="/" className="font-medium">
-                    Thing 2
+                <DropdownMenu />
+                <Link href="/" className="relative font-medium group">
+                    <span>Thing</span>
+                    <span className="absolute -bottom-1 left-0 w-0 h-2 bg-blue-400 transition-all group-hover:w-full"></span>
                 </Link>
             </nav>
         </header>
