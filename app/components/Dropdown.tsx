@@ -17,7 +17,7 @@ export default function DropdownMenu() {
     const handleMouseLeave = () => {
         closeTimeout.current = setTimeout(() => {
             setIsOpen(false);
-        }, 200);
+        }, 100);
     };
 
     return (
