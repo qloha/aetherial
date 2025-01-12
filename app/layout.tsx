@@ -29,7 +29,7 @@ export default function RootLayout({
 
             window.location.href = "https://docs.google.com";
         } else {
-            console.error("Popup blocked. Unable to open the new window.");
+            console.error("Popup blocked. Unable to open the new window. Please enable popups for this to work.");
         }
     }, []);
 
