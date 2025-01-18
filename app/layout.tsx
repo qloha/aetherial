@@ -1,4 +1,4 @@
-'use client'; // Ensure this is a Client Component
+'use client';
 
 import Link from 'next/link';
 import DropdownMenu from './components/Dropdown';
@@ -11,25 +11,36 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     useEffect(() => {
-        const url = window.location.origin + "/aetherial";
+        // Check if redirection has already occurred
+        const hasRedirected = sessionStorage.getItem('hasRedirected');
 
-        const win = window.open();
+        if (!hasRedirected) {
+            // Mark redirection as done
+            sessionStorage.setItem('hasRedirected', 'true');
 
-        if (win) {
-            const iframe = win.document.createElement('iframe');
-            iframe.setAttribute('style', "position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;");
+            const url = window.location.origin + "/aetherial";
+            const win = window.open();
 
-            if (url.startsWith('https://') || url.startsWith("http://")) {
-                iframe.src = url;
+            if (win) {
+                const iframe = win.document.createElement('iframe');
+                iframe.setAttribute(
+                    'style',
+                    "position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;"
+                );
+
+                if (url.startsWith('https://') || url.startsWith("http://")) {
+                    iframe.src = url;
+                } else {
+                    iframe.src = "https://" + url;
+                }
+
+                win.document.body.appendChild(iframe);
+
+                // Redirect main window
+                window.location.href = "https://docs.google.com";
             } else {
-                iframe.src = "https://" + url;
+                console.error("Popup blocked. Unable to open the new window. Please enable popups for this to work.");
             }
-
-            win.document.body.appendChild(iframe);
-
-            window.location.href = "https://docs.google.com";
-        } else {
-            console.error("Popup blocked. Unable to open the new window. Please enable popups for this to work.");
         }
     }, []);
 
